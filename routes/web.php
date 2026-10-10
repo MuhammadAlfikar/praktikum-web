@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\DB;
@@ -27,8 +28,6 @@ Route::get('/mahasiswa/{nim?}', function (?string $nim = null) {
 
         $daftarMahasiswa = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
-        return view('mahasiswa', compact('daftarMahasiswa', 'nim'));
-
     } catch (\Throwable $error) {
         report($error);
 
@@ -37,4 +36,6 @@ Route::get('/mahasiswa/{nim?}', function (?string $nim = null) {
             500
         );
     }
+
+    return view('mahasiswa', compact('daftarMahasiswa', 'nim'));
 });
